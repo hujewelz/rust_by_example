@@ -14,6 +14,7 @@
 //! 类型可以使用 `fmt::Debug` 打印。
 //!
 pub fn run() {
+    println!("=========== Formatted Print ===========");
     // MyType 没有实现 Display ，所以不能用 `{}` 打印。
     // println!("MyType: {}", MyType(100));
     println!("{:?}", debug::MyType::from(100));
