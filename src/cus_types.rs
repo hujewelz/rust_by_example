@@ -12,9 +12,9 @@ pub fn run() {
     let pair = Pair(1, 0.1);
     println!("pair contains: {:?} and {:?}", pair.0, pair.1);
 
-    let top_left = Point::from(10.0, 10.0);
-    let bottom_right = Point::from(60.0, 110.0);
-    let rect = Rectangle::from(top_left, bottom_right);
+    let top_left = Point::new(10.0, 10.0);
+    let bottom_right = Point::new(60.0, 110.0);
+    let rect = Rectangle::new(top_left, bottom_right);
     println!(
         "{:?} with is {}, height is {} and area is {}",
         rect,
@@ -23,7 +23,7 @@ pub fn run() {
         rect.area()
     );
 
-    let top_left = Point::from(10.0, 10.0);
+    let top_left = Point::new(10.0, 10.0);
     let square = Rectangle::square(top_left, 50.0);
     println!(
         "{:?} with is {}, height is {} and area is {}",
@@ -76,7 +76,7 @@ pub struct Point {
 }
 
 impl Point {
-    pub fn from(x: f32, y: f32) -> Self {
+    pub fn new(x: f32, y: f32) -> Self {
         Point { x, y }
     }
 }
@@ -91,7 +91,7 @@ pub struct Rectangle {
 
 impl Rectangle {
     /// Create a Rectangle with top left point and bottom right point.
-    pub fn from(top_left: Point, bottom_right: Point) -> Self {
+    pub fn new(top_left: Point, bottom_right: Point) -> Self {
         Rectangle {
             top_left,
             bottom_right,
@@ -100,7 +100,7 @@ impl Rectangle {
 
     /// Create a Square whit top left point and it's width.
     pub fn square(top_left: Point, width: f32) -> Self {
-        let bottom_right = Point::from(top_left.x + width, top_left.y + width);
+        let bottom_right = Point::new(top_left.x + width, top_left.y + width);
         Rectangle {
             top_left,
             bottom_right,
@@ -233,31 +233,31 @@ mod tests {
 
     #[test]
     fn width_of_rectangle() {
-        let top_left = Point::from(10.0, 10.0);
-        let bottom_right = Point::from(40.0, 40.0);
-        let rect = Rectangle::from(top_left, bottom_right);
+        let top_left = Point::new(10.0, 10.0);
+        let bottom_right = Point::new(40.0, 40.0);
+        let rect = Rectangle::new(top_left, bottom_right);
         assert_eq!(rect.width(), 30.0);
     }
 
     #[test]
     fn height_of_rectangle() {
-        let top_left = Point::from(10.0, 0.0);
-        let bottom_right = Point::from(40.0, 50.0);
-        let rect = Rectangle::from(top_left, bottom_right);
+        let top_left = Point::new(10.0, 0.0);
+        let bottom_right = Point::new(40.0, 50.0);
+        let rect = Rectangle::new(top_left, bottom_right);
         assert_eq!(rect.height(), 50.0);
     }
 
     #[test]
     fn area_of_rectangle() {
-        let top_left = Point::from(10.0, 0.0);
-        let bottom_right = Point::from(40.0, 50.0);
-        let rect = Rectangle::from(top_left, bottom_right);
+        let top_left = Point::new(10.0, 0.0);
+        let bottom_right = Point::new(40.0, 50.0);
+        let rect = Rectangle::new(top_left, bottom_right);
         assert_eq!(rect.area(), 1_500.0);
     }
 
     #[test]
     fn is_square() {
-        let top_left = Point::from(10.0, 0.0);
+        let top_left = Point::new(10.0, 0.0);
         let square = Rectangle::square(top_left, 40.0);
         assert_eq!(square.width(), square.height());
     }
