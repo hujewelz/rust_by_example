@@ -108,7 +108,7 @@ mod display {
 
     impl Display for Color {
         fn fmt(&self, f: &mut Formatter<'_>) -> Result {
-            // {:X}: 十六进制输出
+            // {:X}: 十六进制输出, 大写
             // {:o}: 八进制输出
             // {:b}: 二进制输出
             // {:0n}: 表示补0使位数为 n 位
